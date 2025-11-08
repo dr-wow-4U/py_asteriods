@@ -9,6 +9,8 @@ from logger import log_state
 def main():
 
     pygame.init()
+    
+    
 
 
     #print("Starting Asteroids!")
@@ -16,12 +18,17 @@ def main():
     #print(F"Screen height: 720")
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    clock = pygame.time.Clock()
+
+    dt = 0
 
 
     
     running = True
     while running:
         log_state()
+
+                
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -33,6 +40,9 @@ def main():
 
         # Update the display to show the changes
         pygame.display.flip() # or pygame.display.update()
+
+        dt = clock.tick(60) / 1000.00
+        #print(dt) 
 
     #pygame.quit()
 
